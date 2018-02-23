@@ -22,5 +22,14 @@ minetest.register_craftitem("cxp_food:donut", {
     end
 })
 
+minetest.register_craft({
+    output = "cxp_food:donut 5",
+    recipe = {
+        {"", "farming:flour", ""},
+        {"farming:flour", "", "farming:flour"},
+        {"", "farming:flour", ""}
+    }
+})
+
 print("cxp_food is loaded")
 
