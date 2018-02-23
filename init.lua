@@ -2,24 +2,13 @@
 minetest.register_craftitem("cxp_food:donut", {
     description = "CodeXP's donut",
     inventory_image = "donut.png",
-    on_use = function(itemstack, user, pointed_thing)
-        local hp_change = 10
-        local replace_with_item = nil
+    on_use = minetest.item_eat(10)
+})
 
-        -- Support for hunger mods using minetest.register_on_item_eat
-        for _ , callback in pairs(minetest.registered_on_item_eats) do
-            local result = callback(hp_change, replace_with_item, itemstack, user, pointed_thing)
-            if result then
-                return result
-            end
-        end
-
-        if itemstack:take_item() ~= nil then
-            user:set_hp(user:get_hp() + hp_change)
-        end
-
-        return itemstack
-    end
+minetest.register_craftitem("cxp_food:donut_apple", {
+    description = "CodeXP's donut with apple",
+    inventory_image = "donut_apple.png",
+    on_use = minetest.item_eat(13)
 })
 
 minetest.register_craft({
@@ -29,6 +18,21 @@ minetest.register_craft({
         {"farming:flour", "", "farming:flour"},
         {"", "farming:flour", ""}
     }
+})
+
+minetest.register_craft({
+    output = "cxp_food:donut_apple 5",
+    recipe = {
+        {"", "farming:flour", ""},
+        {"farming:flour", "default:apple", "farming:flour"},
+        {"", "farming:flour", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "cxp_food:donut_apple 2",
+    recipe = {"cxp_food:donut", "default:apple"}
 })
 
 print("cxp_food is loaded")
