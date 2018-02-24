@@ -1,4 +1,4 @@
-#Minetest cxp_food mod
+# Minetest cxp_food mod
 
 My first mod for Minecraft game. This is my learning project that contains some food items for Minecraft.
 
