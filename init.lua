@@ -11,6 +11,13 @@ minetest.register_craftitem("cxp_food:donut_apple", {
     on_use = minetest.item_eat(13)
 })
 
+
+minetest.register_craftitem("cxp_food:apple_jam", {
+    description = "CodeXP's apple jam",
+    inventory_image = "apple_jam.png",
+    on_use = minetest.item_eat(5)
+})
+
 minetest.register_craft({
     output = "cxp_food:donut 5",
     recipe = {
@@ -33,6 +40,13 @@ minetest.register_craft({
     type = "shapeless",
     output = "cxp_food:donut_apple 2",
     recipe = {"cxp_food:donut", "default:apple"}
+})
+
+minetest.register_craft({
+    type = "cooking",
+    output = "cxp_food:apple_jam",
+    recipe = "default:apple",
+    cooktime = 5,
 })
 
 print("cxp_food is loaded")
